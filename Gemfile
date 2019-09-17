@@ -17,6 +17,7 @@ gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'select_all-rails'
 
 group :development, :test do
   gem 'dotenv-rails'

@@ -60,6 +60,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def batch_delete
+    Task.destroy(params[:task_ids])
+    respond_to do |format|
+      format.html { redirect_to tasks_url, notice: 'All selected task was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def set_task
       @task = Task.find(params[:id])

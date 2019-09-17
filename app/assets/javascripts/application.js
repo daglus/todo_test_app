@@ -17,4 +17,8 @@
 //= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
+//= require select_all.js
 //= require_tree .
+$(function() {
+  $("#selectAll").select_all();
+});
