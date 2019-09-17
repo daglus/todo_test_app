@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :completed]
 
   def index
-    @tasks = current_user.tasks
+    @tasks_new = current_user.tasks.where(completed: false)
+    @tasks_complete = current_user.tasks.where(completed: true)
   end
 
   def show
@@ -14,11 +15,6 @@ class TasksController < ApplicationController
   end
 
   def edit
-    if current_user.id == @task.user.id
-      format.html { render :edit }
-    else
-      redirect_to root_path, notice: "You don't have permission."
-    end
   end
 
   def create
@@ -55,16 +51,21 @@ class TasksController < ApplicationController
     end
   end
 
+  def complete
+    @task = Task.find_by_id(params[:id])
+    @task.update_attributes(completed: params[:completed])
+    respond_to do |format|
+      format.html { redirect_to tasks_path, notice: "Task successfully updated" }
+      format.json { render :show, status: :ok, location: @task }
+    end
+  end
+
   private
     def set_task
       @task = Task.find(params[:id])
     end
 
     def task_params
-      params.require(:task).permit(:title,
-                                   :description,
-                                   :priority,
-                                   :due_date,
-                                   :completed)
+      params.require(:task).permit(:title, :description, :priority, :due_date, :completed)
     end
 end

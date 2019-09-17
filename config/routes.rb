@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :tasks
-  devise_for :users
+  resources :tasks do
+    member do
+      post :complete
+    end
+  end
 
+  devise_for :users
+  
   root to: "home#index"
 end

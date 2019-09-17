@@ -1,0 +1,24 @@
+<h1>Completed task</h1>
+<div class="table-responsive text-nowrap">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tasks_complete.each do |task| %>
+        <tr>
+          <td><%= link_to task.title, task %></td>
+          <td class="btn-group" role="group">
+            <%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to "Mark as new", complete_task_path(task, completed: false), method: :post, class: "btn btn-outline-warning btn-sm"  %>
+            <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

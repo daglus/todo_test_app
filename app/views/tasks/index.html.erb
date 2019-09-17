@@ -1,30 +1,12 @@
-<h1>Tasks</h1>
-
-<div class="table-responsive-sm">
-  <% if @tasks.empty? %>
-   No task please create <%= link_to 'new Task', new_task_path %>
-  <% else %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Title task</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <% @tasks.each do |task| %>
-    <tbody>
-      <tr>
-        <th><%= link_to task.title, task %></th>
-        <td><%= task.completed %></td>
-        <td>
-          <%= link_to 'Edit', edit_task_path(task), class: "btn btn-warning" %>
-          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-        </td>
-      </tr>
-    </tbody>
-    <% end %>
-  </table>
-  <%= link_to 'New Task', new_task_path %>
-  <% end %>
+<% if current_user.tasks.empty? %>
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">Welcome to the app!</h5>
+    <p class="card-text">No tasks have been created yet. To start and create the first task use the button below.</p>
+    <%= link_to 'Create first task', new_task_path, class: "btn btn-primary" %>
+  </div>
 </div>
+<% else %>
+  <%= render 'task_new' %>
+  <%= render 'task_complete' %>
+<% end %>
