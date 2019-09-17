@@ -4,5 +4,5 @@ module ApplicationHelper
       flash.now[:error] = flash[:error].to_a.concat resource.errors.full_messages
       flash.now[:error].uniq!
     end
-  end    
+  end
 end

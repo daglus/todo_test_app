@@ -1,0 +1,12 @@
+<% if current_user.tasks.empty? %>
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">Welcome to the app!</h5>
+    <p class="card-text">No tasks have been created yet. To start and create the first task use the button below.</p>
+    <%= link_to 'Create first task', new_task_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<% else %>
+  <%= render 'task_new' %>
+  <%= render 'task_complete' %>
+<% end %>
