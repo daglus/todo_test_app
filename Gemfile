@@ -13,8 +13,13 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'devise'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'letter_opener'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
