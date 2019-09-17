@@ -16,6 +16,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'dotenv-rails'
