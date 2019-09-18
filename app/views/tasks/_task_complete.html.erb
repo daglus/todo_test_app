@@ -1,12 +1,12 @@
 <h1>Completed task</h1>
 <%= form_tag batch_delete_tasks_path, method: :delete do %>
 <div class="table-responsive text-nowrap">
-  <table class="table">
+  <table id="completedTaskTable" class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Actions</th>
-        <th data-sort-ignore="true"><input type="checkbox" id="selectAllCompleted"></input></th>
+        <th id="title">Title</th>
+        <th data-sorter="false">Actions</th>
+        <th data-sorter="false"><input type="checkbox" id="selectAllCompleted"></input></th>
       </tr>
     </thead>
 
@@ -27,3 +27,4 @@
 </div>
 <%= submit_tag "Delete selected", :class => 'btn btn-primary btn-xs' %>
 <% end %>
+<%= link_to 'Create task', new_task_path, class: "btn btn-primary" %>
