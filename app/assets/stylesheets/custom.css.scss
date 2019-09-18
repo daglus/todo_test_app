@@ -26,6 +26,8 @@
     color: #468847;
     text-align: left;
  }
+ /*flash end*/
+
 /* Tablesorter */
 #title.tablesorter-header{
     background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
@@ -35,9 +37,11 @@
     cursor: pointer;
 }
 
-.tablesorter-headerAsc {
+#title.tablesorter-headerAsc {
     background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
 }
-.tablesorter-headerDesc {
+
+#title.tablesorter-headerDesc {
     background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
 }
+/* Tablesorter end*/

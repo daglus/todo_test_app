@@ -1,12 +1,11 @@
-<h1>New task</h1>
 <%= form_tag batch_delete_tasks_path, method: :delete do %>
-<div class="table-responsive text-nowrap">
+<div class="table-responsive">
   <table id="newTaskTable" class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th id="title">Title</th>
-        <th data-sorter="false">Actions</th>
-        <th data-sorter="false"><input type="checkbox" id="selectAllNew"></input></th>
+        <th id="title" style="width: 74%">Title</th>
+        <th data-sorter="false" style="width: 24%">Actions</th>
+        <th data-sorter="false" style="width: 2%"><input type="checkbox" id="selectAllNew"></input></th>
       </tr>
     </thead>
 
@@ -14,10 +13,12 @@
       <% @tasks_new.each do |task| %>
         <tr>
           <td><%= link_to task.title, task %></td>
-          <td class="btn-group" role="group">
-            <%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-primary btn-sm" %>
-            <%= link_to "Mark as complete", complete_task_path(task, completed: true), method: :post, class: "btn btn-outline-success btn-sm"  %>
-            <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"  %>
+          <td>
+            <div class="btn-group" role="group">
+              <%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-primary btn-sm" %>
+              <%= link_to "Mark as complete", complete_task_path(task, completed: true), method: :post, class: "btn btn-outline-success btn-sm"  %>
+              <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"  %>
+            </div>
           </td>
           <td><%= check_box_tag "task_ids[]", task.id, false, class: 'selectable' %></td>
         </tr>
@@ -25,5 +26,8 @@
     </tbody>
   </table>
 </div>
-<%= submit_tag "Delete selected", :class => 'btn btn-primary btn-xs' %>
+<div class="btn-group float-right" role="group">
+  <%= submit_tag "Delete selected", :class => 'btn btn-danger btn-sm' %>
+  <%= link_to 'Create new task', new_task_path, class: "btn btn-primary btn-sm" %>
+</div>
 <% end %>
