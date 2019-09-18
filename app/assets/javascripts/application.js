@@ -15,10 +15,18 @@
 //= require turbolinks
 //= require jquery3
 //= require jquery-ui
+//= require jquery-tablesorter
+//= require jquery-tablesorter/jquery.tablesorter
+//= require jquery-tablesorter/jquery.tablesorter.widgets
 //= require popper
 //= require bootstrap-sprockets
 //= require select_all.js
 //= require_tree .
+$(function() {
+  $("#completedTaskTable").tablesorter();
+  $("#newTaskTable").tablesorter();
+});
+
 $(function() {
   $("#selectAllNew").select_all({
     class: "new"
