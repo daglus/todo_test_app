@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root to: "tasks#index"
+  root to: "home#index"
 end
