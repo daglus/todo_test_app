@@ -1,0 +1,7 @@
+$('.complete').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+})
+
+$('.incomplete').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+})
