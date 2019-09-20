@@ -30,7 +30,11 @@
     <div class="col-md-3 mb-3">
       <div class="input-group-prepend">
         <%= form.label :priority, class: "input-group-text"%>
-        <%= form.select :priority, options_for_select([["High priority", 1], ["Low priority", 2]]), {},  class: "form-control" %>
+        <%= form.select :priority, options_for_select([["Highest priority", 1],
+                                                        ["High priority", 2],
+                                                        ["Normal priority", 3],
+                                                        ["Low priority", 4],
+                                                        ["Lowest priority", 5]]), {},  class: "form-control" %>
       </div>
 
     </div>
@@ -42,8 +46,10 @@
   </div>
 
   <div class="col-md-7 mb-3">
-    <%= form.label :select_if_task_completed %>
-    <%= form.check_box :completed %>
+    <% if params[:action] != "new" %>
+      <%= form.label :select_if_task_completed %>
+      <%= form.check_box :completed %>
+     <% end %>
   </div>
 
   <div class="actions">
