@@ -80,6 +80,8 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :description, :priority, :due_date, :completed)
+      defaults = { completed: false }
+      params.require(:task).permit(:title, :description, :priority, :due_date,
+                                   :completed).reverse_merge(defaults)
     end
 end
